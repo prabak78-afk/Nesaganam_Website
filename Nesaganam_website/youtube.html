@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Watch the latest Nesaganam videos, interviews, music, and Tamil radio content."
+    />
+    <title>YouTube | Nesaganam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #06184d;
+        --paper: #eef5f8;
+        --cream: #fff9e8;
+        --orange: #e63d36;
+        --yellow: #f8b928;
+        --blue: #168bd0;
+        --line: rgba(6, 24, 77, 0.18);
+        --sans: "DM Sans", sans-serif;
+        --display: "Manrope", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--sans);
+        background: var(--paper);
+        background-image: linear-gradient(135deg, #ffffff80 25%, transparent 25%),
+          linear-gradient(315deg, #d6edf580 25%, transparent 25%);
+        background-size: 34px 34px;
+      }
+      a { color: inherit; text-decoration: none; }
+      a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+      .site-header {
+        height: 82px;
+        max-width: 1320px;
+        padding: 0 42px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--cream);
+        border-bottom: 1px solid #06184d18;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--display);
+        font-size: 21px;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+      }
+      .brand::before {
+        content: "";
+        width: 48px;
+        height: 48px;
+        display: block;
+        background: url("logo 512.png") center/contain no-repeat;
+        filter: drop-shadow(0 3px 4px #07194b25);
+      }
+      .main-nav { display: flex; gap: 37px; font-size: clamp(16px, 1.5vw, 20px); }
+      .main-nav a {
+        position: relative;
+        padding-bottom: 8px;
+        font-weight: 700;
+      }
+      .main-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: var(--yellow);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+      }
+      .main-nav a:hover, .header-action:hover { color: var(--blue); }
+      .main-nav a:hover::after,
+      .main-nav a:focus-visible::after { transform: scaleX(1); }
+      .header-action {
+        font-size: 16px;
+        font-weight: 700;
+        padding-bottom: 8px;
+      }
+      .menu-toggle { display: none; border: 0; background: none; color: var(--ink); font-size: 24px; }
+      .youtube-main {
+        max-width: 1320px;
+        margin: auto;
+        padding: clamp(70px, 10vw, 125px) 42px 120px;
+      }
+      .eyebrow {
+        margin: 0 0 24px;
+        color: var(--orange);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+      }
+      h1, h2 { font-family: var(--display); letter-spacing: -0.07em; line-height: .94; }
+      h1 { max-width: 680px; margin: 0; font-size: clamp(56px, 8vw, 108px); }
+      h1 em { color: var(--blue); font-family: Georgia, serif; font-weight: 400; }
+      .intro {
+        max-width: 540px;
+        margin: 27px 0 45px;
+        color: #5d6b7c;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+      .channel-panel {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        max-width: 620px;
+        padding: 18px 20px;
+        background: var(--cream);
+        border-left: 5px solid var(--orange);
+        box-shadow: 10px 10px 0 #168bd033;
+      }
+      .channel-avatar {
+        width: 68px;
+        height: 68px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--yellow);
+      }
+      .channel-details { min-width: 0; }
+      .channel-details strong {
+        display: block;
+        font-family: var(--display);
+        font-size: 20px;
+      }
+      .channel-details span {
+        display: block;
+        margin-top: 4px;
+        color: #5d6b7c;
+        font-size: 12px;
+      }
+      .channel-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-left: auto;
+      }
+      .channel-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 20px;
+        color: var(--cream);
+        background: var(--ink);
+        border-bottom: 4px solid var(--yellow);
+        font-size: 14px;
+        font-weight: 700;
+        transition: transform .2s ease, background-color .2s ease;
+      }
+      .channel-link.secondary {
+        color: var(--cream);
+        background: var(--orange);
+        border: 1px solid var(--orange);
+      }
+      .channel-link.secondary:hover {
+        color: var(--cream);
+        background: #c92f2a;
+        border-color: #c92f2a;
+      }
+      .channel-link:hover { background: var(--blue); transform: translateY(-2px); }
+      .featured-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 94px 0 28px;
+      }
+      .featured-heading h2 {
+        margin: 0;
+        font-size: clamp(38px, 5vw, 62px);
+      }
+      .featured-heading p {
+        max-width: 250px;
+        margin: 0;
+        color: #5d6b7c;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+      .video-card {
+        padding: 10px;
+        background: var(--cream);
+        border: 1px solid var(--line);
+      }
+      .video-card iframe {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 0;
+        background: var(--ink);
+      }
+      .site-footer {
+        padding: 38px max(42px, calc((100vw - 1236px) / 2)) 25px;
+        color: var(--cream);
+        background: var(--ink);
+        border-top: 5px solid var(--yellow);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        color: #98a39c;
+        font-size: 10px;
+      }
+      .socials {
+        display: flex;
+        gap: 8px;
+      }
+      .socials a {
+        width: 31px;
+        height: 31px;
+        border: 1px solid #62716a;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--cream);
+        transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+      }
+      .socials a:hover,
+      .socials a:focus-visible {
+        color: var(--yellow);
+        border-color: var(--yellow);
+        background-color: rgba(247, 188, 69, 0.1);
+        outline: none;
+      }
+      @media (max-width: 760px) {
+        .site-header { height: 72px; padding: 0 22px; }
+        .main-nav { display: flex; gap: 16px; font-size: 12px; }
+        .header-action, .menu-toggle { display: none; }
+        .youtube-main { padding: 62px 22px 90px; }
+        h1 { font-size: clamp(52px, 16vw, 78px); }
+        .channel-panel { align-items: flex-start; flex-wrap: wrap; padding: 16px; }
+        .channel-actions { width: 100%; margin-left: 86px; }
+        .channel-link { flex: 1 1 150px; justify-content: center; }
+        .featured-heading { display: block; margin-top: 76px; }
+        .featured-heading p { margin-top: 12px; }
+        .video-grid { grid-template-columns: 1fr; gap: 16px; }
+        .site-footer { padding: 30px 22px 22px; }
+        .footer-bottom { display: block; }
+        .footer-bottom a { display: block; margin-top: 12px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">Nesaganam</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Radio</a>
+        <a href="youtube.html" aria-current="page">YouTube</a>
+      </nav>
+      <a class="header-action" href="donate.html">Donate <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="youtube-main">
+      <p class="eyebrow">Nesaganam on YouTube</p>
+      <h1>Watch, listen, <em>connect.</em></h1>
+      <p class="intro">Find the latest Nesaganam videos, Tamil music, radio moments, and conversations in one place.</p>
+      <section class="channel-panel" aria-label="Nesaganam YouTube channel">
+        <img class="channel-avatar" src="logo 512.png" alt="Nesaganam channel logo" />
+        <div class="channel-details">
+          <strong>Nesaganam</strong>
+          <span>Official Tamil radio and video channel</span>
+        </div>
+        <div class="channel-actions">
+          <a class="channel-link" href="https://www.youtube.com/@nesaganamchannel/videos" target="_blank" rel="noopener noreferrer">
+            View all videos <span aria-hidden="true">↗</span>
+          </a>
+          <a class="channel-link secondary" href="https://www.youtube.com/@nesaganamchannel?sub_confirmation=1" target="_blank" rel="noopener noreferrer">
+            Subscribe
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="featured-title">
+        <div class="featured-heading">
+          <h2 id="featured-title">Featured <em>videos.</em></h2>
+          <p>Watch selected Nesaganam videos directly from this page.</p>
+        </div>
+        <div class="video-grid">
+          <article class="video-card">
+            <iframe src="https://www.youtube.com/embed/VIFgYg0BqKA" title="Nesaganam featured video 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </article>
+          <article class="video-card">
+            <iframe src="https://www.youtube.com/embed/r5l-LQG0gwg" title="Nesaganam featured video 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </article>
+          <article class="video-card">
+            <iframe src="https://www.youtube.com/embed/RxsStiU2cFU" title="Nesaganam featured video 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </article>
+          <article class="video-card">
+            <iframe src="https://www.youtube.com/embed/-nTZZ4T1A00" title="Nesaganam featured video 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </article>
+          <article class="video-card">
+            <iframe src="https://www.youtube.com/embed/NIWEwfK_EI0" title="Nesaganam featured video 5" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </article>
+          <article class="video-card">
+            <iframe src="https://www.youtube.com/embed/C_NUHvmxBGE" title="Nesaganam featured video 6" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </article>
+          <article class="video-card">
+            <iframe src="https://www.youtube.com/embed/b0_ao5AFPXo" title="Nesaganam featured video 7" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        <span>© 2026 Nesaganam Online Tamil Radio</span>
+        <a href="index.html">Back to radio ↗</a>
+      </div>
+    </footer>
+    <script>
+      const menu = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".main-nav");
+      menu.addEventListener("click", () => {
+        const open = menu.getAttribute("aria-expanded") === "true";
+        menu.setAttribute("aria-expanded", String(!open));
+        nav.style.display = open ? "" : "flex";
+        if (!open) {
+          Object.assign(nav.style, {
+            position: "absolute",
+            top: "72px",
+            left: 0,
+            right: 0,
+            padding: "18px 22px",
+            background: "var(--cream)",
+            flexDirection: "column",
+            gap: "18px",
+            zIndex: 4,
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
