@@ -66,4 +66,8 @@ An internet connection is required for the live stream, external fonts, embedded
 
 ## License
 
-No license has been specified for this project yet.
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
+
+You may view the complete license terms in [LICENSE.txt](LICENSE.txt). By using,
+copying, modifying, or distributing this project, please follow the terms of the
+GPL v3.0 license.
