@@ -1,0 +1,29 @@
+Copyright (c) 2026 Nesam Media / Nesaganam. All rights reserved.
+
+This repository and its original contents, including the HTML, scripts,
+styling, branding, logos, photographs, artwork, text, and other media, are
+copyrighted works of Nesam Media / Nesaganam unless a file or asset states
+otherwise.
+
+No permission is granted to copy, modify, publish, distribute, sublicense,
+sell, or create derivative works from this repository or its original assets,
+in whole or in part, without prior written permission from the copyright
+holder. Viewing the website or downloading a copy of this repository does not
+grant any ownership or other license rights.
+
+You may make a temporary copy of the website in your browser and use the
+website for personal, non-commercial purposes, subject to applicable law.
+Any other use requires prior written permission.
+
+Third-party materials are not covered by this notice. This includes, for
+example, YouTube content, Google Fonts, the FastCast4u stream, Google Play
+assets, social-media content, and any other material owned by a third party.
+Those materials remain subject to their respective owners' terms and
+licenses. You are responsible for obtaining permission to use them.
+
+THE PROJECT IS PROVIDED "AS IS", TO THE EXTENT PERMITTED BY APPLICABLE LAW,
+WITHOUT WARRANTIES OF ANY KIND. NESAM MEDIA / NESAGANAM IS NOT LIABLE FOR
+ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM USE OF THE PROJECT.
+
+For permission requests, contact the project copyright holder through the
+official Nesaganam or Nesam Media contact channels.
